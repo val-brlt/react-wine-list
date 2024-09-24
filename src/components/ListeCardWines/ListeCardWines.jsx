@@ -1,7 +1,29 @@
 
 import styles from './ListeCardWines.module.css'
+import {useQuery} from '@tanstack/react-query';
+import { API_HOST } from '../../constants/constants';
+import { useParams } from 'react-router-dom';
 
-export default function ListeCardWines({ wines }) {
+export default function ListeCardWines() {
+
+    const {typevin, winery} = useParams();
+
+    // FETCH WINES BY WYNERI
+    const {isLoading, error, data : wines} = useQuery({
+        queryKey: ["wines", typevin, winery],
+        queryFn: () => fetch(`${API_HOST}/${typevin}/?winery=${winery}`)
+              .then(r => r.json())
+              .then(data => data)
+    })
+    
+    if (isLoading) {
+        return <h3>Loading...</h3>
+    }
+
+    if (error) {
+        return <h3>An error occured: {error.message}</h3>
+    }
+
     return (
         <div className="row">
             {wines.map(wine => (

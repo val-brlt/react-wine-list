@@ -1,5 +1,5 @@
 {
-  "name": "my-react-app",
+  "name": "wine-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.56.2",
     "bootstrap": "^5.3.3",
-    "my-react-app": "file:",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^6.26.2",
+    "wine-app": "file:"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

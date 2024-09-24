@@ -1,0 +1,9 @@
+
+.typevincontainer {
+    width: 50%;
+}
+
+.typevin:hover {
+    background-color: #0d6efd;
+    color: white;
+}
