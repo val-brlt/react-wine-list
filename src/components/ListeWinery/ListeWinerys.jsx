@@ -7,7 +7,6 @@ import { Link, useParams } from 'react-router-dom';
 export default function ListeWinerys() {
 
     const { typevin } = useParams();
-    console.log("ttypevinypevin:", typevin)
 
     // FETCH WINERY BY TYPE VIN
     const {isLoading, error, data : winerys} = useQuery({
@@ -44,7 +43,7 @@ export default function ListeWinerys() {
             {winerys.map((winery, index) => (
                 <Link 
                     to={`/typevin/${typevin}/winery/${winery.winery}`}
-                    key={index} 
+                    key={winery.winery} 
                     className={`list-group-item d-flex justify-content-between ${styles.listItem}`}>
                     <span>{winery.winery}</span>
                     <span className="text-muted">{winery.location}</span>
